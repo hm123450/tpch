@@ -9,7 +9,7 @@
 #include "capped_dict.h"
 #include "synchronized_dict.h"
 using namespace std;
-
+#include <stdio.h>
 #define NUM_TUPLES 1<<29 // 536 million.
 #define NUM_THREADS 8
 typedef long long i64;
@@ -246,5 +246,12 @@ int main() {
         (long) diff2.tv_sec, (long) diff2.tv_usec,
         (long) diff3.tv_sec, (long) diff3.tv_usec,
         (long) diff4.tv_sec, (long) diff4.tv_usec);
+    FILE* outfile = fopen("../output.txt", "a");
+    fprintf(outfile, "%d %ld.%06ld %ld.%06ld %ld.%06ld %ld.%06ld\n", i,
+        (long) diff1.tv_sec, (long) diff1.tv_usec,
+        (long) diff2.tv_sec, (long) diff2.tv_usec,
+        (long) diff3.tv_sec, (long) diff3.tv_usec,
+        (long) diff4.tv_sec, (long) diff4.tv_usec);
+    fclose(outfile);
   }
 }
