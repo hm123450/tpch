@@ -25,7 +25,7 @@
 #include <unordered_map>
 #include <vector>
 #include <iostream>
-
+#include <stdio.h>
 #include "utils.h"
 
 #include "../hashtable/dict.h"
@@ -182,5 +182,8 @@ int main(int argc, char **argv) {
         gettimeofday(&after, 0);
         timersub(&after, &before, &diff);
         printf("Q14 Complete: %ld.%06ld res=%lf\n", (long) diff.tv_sec, (long) diff.tv_usec, res);
+        FILE* outfile = fopen("../output.txt", "a");
+        fprintf(outfile, "Q14 Complete: %ld.%06ld res=%lf\n", (long) diff.tv_sec, (long) diff.tv_usec, res);
+        fclose(outfile);
     }
 }
