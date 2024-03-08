@@ -1,7 +1,7 @@
 UNAME_S := $(shell uname -s)
 
 CC=gcc
-CXX=g++-6 -std=c++11 -fopenmp
+CXX=g++ -std=c++11 -fopenmp
 
 ifeq ($(UNAME_S),Darwin)
     COPENMP=clang-omp++ -liomp5 -fopenmp
