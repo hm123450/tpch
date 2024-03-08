@@ -34,7 +34,7 @@
 
 #include <omp.h>
 
-#define NUM_PARALLEL_THREADS 1
+#define NUM_PARALLEL_THREADS 8
 
 using namespace std;
 
@@ -150,7 +150,7 @@ int main(int argc, char **argv) {
     Part *parts = new Part(PARTS_PER_SF * SF);
     Lineitem *lineitems = new Lineitem(LINE_ITEM_PER_SF * SF);
     load_data_q14(data_dir, parts, lineitems);
-
+    /*
     printf("Printing Lineitems First 10 rows:\n");
     printf("orderkey | quantity | extendedprice | discount | shipinstruct | shipmode | \n");
     for (int i = 0; i < 10; i++) {
@@ -173,10 +173,11 @@ int main(int argc, char **argv) {
                 parts->size[i],
                 parts->container[i]);
     }
+    */
 
     struct timeval before, after, diff;
     double res;
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 2; i++) {
         gettimeofday(&before, 0);
         res = run_parallel(parts, lineitems);
         gettimeofday(&after, 0);
