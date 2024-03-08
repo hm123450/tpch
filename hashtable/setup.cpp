@@ -10,7 +10,7 @@
 #include "synchronized_dict.h"
 using namespace std;
 #include <stdio.h>
-#define NUM_TUPLES 1<<22 // 536 million.
+#define NUM_TUPLES 1<<20 // 536 million.
 #define NUM_THREADS 8
 typedef long long i64;
 
