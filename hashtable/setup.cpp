@@ -10,7 +10,7 @@
 #include "synchronized_dict.h"
 using namespace std;
 #include <stdio.h>
-#define NUM_TUPLES 1<<29 // 536 million.
+#define NUM_TUPLES 1<<23 // 536 million.
 #define NUM_THREADS 8
 typedef long long i64;
 
@@ -216,7 +216,7 @@ int main() {
   // for (int i=14; i<15; i+=2) {
   struct timeval before, after, diff1, diff2, diff3, diff4;
 
-  for (int i=24; i>=2; i-=2) {
+  for (int i=2; i>=2; i-=2) {
     int* keys = generate_data("uniform", NUM_TUPLES, 1 << i);
 
     struct timeval before, after, diff1, diff2, diff3, diff4;
